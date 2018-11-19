@@ -1,18 +1,14 @@
 {
   "author": "Ahmad Bamieh",
   "devDependencies": {
-    "lerna": "2.9.0"
+    "lerna": "^3.4.0"
   },
   "scripts": {
     "lerna:publish": "lerna publish",
     "lerna:clean": "lerna clean",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:updated": "lerna updated",
-    "lerna:install": "lerna add --scope=reflow-core require-directory",
-    "lerna:test": "lerna run --scope reflow-core --scope reflow-analytics test",
+    "lerna:test": "lerna run test",
     "lerna:report-coverage": "lerna run report-coverage"
-  },
-  "dependencies": {
-    "next": "^5.1.0"
   }
 }

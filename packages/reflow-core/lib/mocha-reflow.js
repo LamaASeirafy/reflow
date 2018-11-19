@@ -1,10 +1,10 @@
 import Mocha from 'mocha';
 import './interfaces/bdd';
 
-import getClient from './client';
+import {createClient} from 'reflow-client';
 
-Mocha.prototype.initClient = async function(clientSettings) {
-  this.client = await getClient(clientSettings);
+Mocha.prototype.initClient = async function(remoteConfig, clientConfig) {
+  this.client = await createClient(remoteConfig, clientConfig);
   return this.client
 }
 

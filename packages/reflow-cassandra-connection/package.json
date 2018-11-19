@@ -1,10 +1,11 @@
 {
   "name": "reflow-cassandra-connection",
-  "version": "3.0.0-gamma.6",
+  "version": "3.0.0-gamma.29",
   "main": "index.js",
   "dependencies": {
     "bluebird": "^3.5.1",
     "cassandra-driver": "^3.3.0",
     "express-cassandra": "^2.2.0"
-  }
+  },
+  "gitHead": "6c80e3d2bcf5f260f8ff4596e4e06a8e5a8d01cc"
 }

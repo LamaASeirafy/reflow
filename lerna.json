@@ -1,16 +1,16 @@
 {
-  "version": "3.0.0-gamma.6",
-  "lerna": "2.4.0",
-  "commands": {
+  "version": "3.0.0-gamma.29",
+  "lerna": "3.4.0",
+  "packages": [
+    "examples/*",
+    "packages/*"
+  ],
+  "npmClient": "npm",
+  "command": {
     "publish": {
-      "ignore": [
+      "ignoreChanges": [
         "example-*"
       ]
     }
-  },
-  "packages": [
-    "packages/*",
-    "examples/*"
-  ],
-  "npmClient": "npm"
+  }
 }

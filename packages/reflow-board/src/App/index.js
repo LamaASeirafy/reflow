@@ -19,9 +19,9 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-// const uri = process.env.REACT_APP_REFLOW_DEVELOPMENT? 'http://localhost:3000/graphql': '/graphql';
 
-const uri = 'https://automation.yamsafer.com:5555/graphql';
+const uri = process.env.REACT_APP_REFLOW_DEVELOPMENT?
+  'http://localhost:3000/graphql': 'https://automation.yamsafer.com:5555/graphql';
 
 const client = new ApolloClient({
   link: createHttpLink({
@@ -44,8 +44,8 @@ class App extends Component {
             <div className="App container-fluid">
               <Switch>
                 <Route exact path="/" component={ProjectsPage}/>
-                <Route exact path="/project/:projectName" component={ProjectsPage}/>
-                <Route exact path="/project/:projectName/job/:jobID" component={FlowsPage}/>
+                <Route exact path="/project/:projectID" component={ProjectsPage}/>
+                <Route exact path="/job/:jobID" component={FlowsPage}/>
                 <Route path="/flow/:flowID" component={CombinationsList}/>
                 <Route path="/combination/:combinationID" component={CombinationReport}/>
                 <Route component={ NotFound }/>

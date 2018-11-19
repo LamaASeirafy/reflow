@@ -4,14 +4,15 @@
     {
       "file_exclude_patterns":
       [
-          // "package-lock.json"
+          "package-lock.json"
       ],
       "folder_exclude_patterns":
       [
           "distribution",
           "node_modules",
           ".tmp",
-          ".git"
+          ".git",
+          "packages/reflow-board/build"
       ],
       "path": "."
     }

@@ -1,6 +1,5 @@
 require('babel-register')();
 const MochaReflow = require('./mocha-reflow').default;
-const reflowProps = require('./client/base/flow-variables'); //Todo: move to client
 const decache = require('decache');
 const praseDir = require('./utils/parse-dir');
 
@@ -43,7 +42,6 @@ const executeTree = function({combination, customActions, mochaConfig, flowDetai
     require(mod);
   })
 
-  global.reflow = reflowProps;
   const combinationID = new FlakeId({}).gen();
   const mochaReflowConfig = Object.assign({
     ui: 'reflow-bdd',
@@ -75,13 +73,12 @@ const executeTree = function({combination, customActions, mochaConfig, flowDetai
   const customActionsObj = praseDir(customActions);
   console.log('customActionsObj', customActionsObj)
 
-
-  mochaReflowInstance.initClient({connection, capability, customActions}).then(client => {
+  const {remoteOptions, ...clientConfig} = capability;
+  mochaReflowInstance.initClient(remoteOptions, clientConfig).then(client => {
     global.client = client;
 
     mochaReflowInstance.run(failures => {
       mochaReflowInstance.files.forEach(decache);
-      global.reflow.teardown();
       client.teardown().then(_ => {
         setTimeout(() => done(failures), 1000)
       });
